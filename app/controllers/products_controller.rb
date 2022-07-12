@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  before_action :find_product, except: %i[index new create]
+  before_action :find_product, except: %i[index new create show_offers]
 
   def index
     @products = Product.all
@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = current_user.offers.build(product_params)
     if @product.save!
       redirect_to @product
     else
@@ -35,6 +35,10 @@ class ProductsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def show_offers
+    @products = current_user.offers
   end
 
   private
