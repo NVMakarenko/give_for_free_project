@@ -1,0 +1,33 @@
+<%= form_with model: @product do |form| %>
+  <div class="container">
+    <div class ="row">
+        <div class="col">
+            <div>
+                <p><%= t('form.title')%></p>
+                <%= form.text_field :title, class: 'field_title' %>
+                <% @product.errors.full_messages_for(:title).each do |message|%>
+                  <div><%= message %></div>
+                <%end%>
+            </div>
+            <div>
+                <p><%= t('form.about') %></p>
+                <%= form.text_field :about, class: 'field_about' %>
+            </div>
+            <div>
+              <p><%= t("product.way_to_give")%></p>
+              <%= form.select :delivery, @deliveries%>
+            </div>
+            <div>
+              <p><%= t("product.price_question")%></p>
+              <%= form.select :state, @states %>
+            </div>
+        </div>
+        <div class="col image_download">
+          <%= form.file_field :image%>
+        </div>
+    </div>
+  </div>
+  <div>
+      <%= form.submit class: "btn btn-primary"%>
+  </div>
+<% end %>

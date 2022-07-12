@@ -1,0 +1,24 @@
+body {
+  text-align: center;
+}
+div {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.btn{
+  width: 200px;
+}
+.col {
+  text-align: center;
+}
+.image_download{
+  padding-top: 15%;
+}
+.field_about{
+  height: 150px;
+  width: 90%;
+}
+.field_title{
+  width: 90%;
+}

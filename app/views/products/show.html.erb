@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 ><%= t("show.title")%></h1>
+    <div class="row">
+      <div class="col">
+        <h3><%= @product.title %></h3>
+        <p><%= @product.about %></p>
+        <%= t("product.delivery")%>
+        <h4><%= @product.delivery.humanize %></h4>
+        <%= t("product.price")%>
+        <h4><%= @product.state.humanize %></h4>
+      </div>
+      <div class = "col">
+        <% image = @product.image.attached? ? @product.image : 'item.jpg' %>
+        <p> <%= image_tag image, size:"350x350" %></p>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to "Edit", edit_product_path(@product),
+        class: "btn btn-primary btn-block" %>
+      </div>
+      <div class="col-md-6" data-controller="products">
+        <%= button_to "Delete", @product, method: :delete,
+          data: {action: "click->products#destroy"},
+          class: "btn btn-primary btn-block"  %>
+      </div>
+    </div>
+  <p> <%= link_to t("button.root"), :root %> </p>
+</div>
