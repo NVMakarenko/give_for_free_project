@@ -1,0 +1,18 @@
+<div class="container">
+  <nav class="navbar navbar-light">
+    <span>
+      <% if user_signed_in? %>
+        <%= link_to( image_tag("user_auth.png", size:"50x40"), root_path, :class => 'navbar-link')%>
+        <%= link_to("#{current_user.email}", edit_user_registration_path, :class => 'navbar-link')%>
+      <% end %>
+    </span>
+    <span> <%= link_to t("show.owner"), show_offers_path%> </span>
+    <span> <%= link_to t("show.give"), new_product_path, class: 'btn btn-primary' %>     </span>
+  </nav>
+</div>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>

@@ -1,0 +1,9 @@
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-4">
+      <% image = product.image.attached? ? product.image : 'item.jpg' %>
+      <p> <%= image_tag image, size:"200x200" %></p>
+      <p> <%= link_to(product.title, product_path(product) )%></p>
+    </div>
+  <%end%>
+</div>

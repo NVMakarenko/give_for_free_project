@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1><%= t("show.owner")%></h1>
+      </div>
+  </div>
+<%= render "show_product_icon"%>
+<p><%= link_to t("show.give"), new_product_path, class: 'btn btn-primary' %> </p>
+<p> <%= link_to t("button.root"), :root %> </p>
+</div>

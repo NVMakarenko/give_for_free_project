@@ -5,14 +5,5 @@
       <h3><%= t("show.context")%></h3>
     </div>
   </div>
-  <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-4">
-        <% image = product.image.attached? ? product.image : 'item.jpg' %>
-        <p> <%= image_tag image, size:"200x200" %></p>
-        <p> <%= link_to(product.title, product_path(product) )%></p>
-      </div>
-    <%end%>
-  </div>
-<%= link_to t("show.give"), new_product_path, class: 'btn btn-primary' %>
+  <%= render "show_product_icon"%>
 </div>
