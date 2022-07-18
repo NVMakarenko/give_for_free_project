@@ -4,7 +4,7 @@ en:
     context: "find what you need, give needlessly"
     edit: "I want to tell about it better"
     give: "I want to give"
-    owner: "My gifts"
+    owner: "My offers"
     title: "Flea Market"
   product:
     delivery: "The way to get:"
@@ -14,6 +14,7 @@ en:
   wishlist:
     context: "To get what you want, call number bellow"
     title: "My Wishlist"
+    phone: "Call to the owner to get what you need"
   button:
     destroy: "Delete"
     destroy_message: "Are you sure want to delete this item?'"

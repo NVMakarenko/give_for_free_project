@@ -23,4 +23,12 @@ RSpec.describe User, type: :model do
     user.valid?
     expect(user.errors[:password]).to include('is too short (minimum is 6 characters)')
   end
+
+  it 'is looking for wishlists for current product' do
+    @user = FactoryBot.create(:user, :second)
+    current_user = FactoryBot.create(:user, :third)
+    @product = create(:product, owner: @user)
+    @wishlist = current_user.wishlists.create(product_id: @product.id)
+    expect(current_user.id).to eq(@wishlist.user_id)
+  end
 end

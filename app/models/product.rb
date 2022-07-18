@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   has_one_attached :image do |attachable|
     attachable.variant :thumb, resize_to_limit: [100, 100]
   end
+  has_many :wishlists, dependent: :destroy
+  has_many :bidders, class_name: 'User', through: :wishlists, source: :user
 
   enum :delivery, { hand: 0, post: 1 }
   enum :state, { free: 0, change: 1 }

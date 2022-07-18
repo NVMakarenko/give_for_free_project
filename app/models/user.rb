@@ -7,4 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :offers, class_name: 'Product', foreign_key: 'owner_id'
+
+  has_many :wishlists
+  has_many :wishes, class_name: 'Product', through: :wishlists, source: :product
 end

@@ -1,0 +1,19 @@
+<h2><%= t("wishlist.title")%></h2>
+<h3><%= t("wishlist.context")%></h3>
+<div class="container">
+  <div class="row" data-controller="products">
+    <% @wishes.each do |item|%>
+      <div class="col-4">
+        <% image = item.image.attached? ? item.image : 'item.jpg' %>
+        <%= image_tag image, size:"200x200" %>
+        <div><%= link_to "#{item.title}", product_path(item) %></div>
+        <h5> <%= "#{item.owner.phone_number}" %> </h5>
+        <%= button_to t("button.remove"), wishlist_by_product(item, current_user), method: :delete,
+        data: { action:  "click->products#destroy"} ,
+        class: "btn btn-primary" %>
+      </div>
+      <% end %>
+  </div>
+</div>
+
+<p><%= link_to t("button.root"), :root %></p>

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module ProductsHelper
-  def choose_delivery
-    Product.deliveries.map { |k, v| [Product.human_attribute_name(k.to_s), v] }
+  def not_in_wishlist?(product, user)
+    user.wishes.exclude?(product)
   end
 
-  def choose_state
-    Product.states.map { |k, v| [Product.human_attribute_name(k.to_s), v] }
+  def wishlist_by_product(product, user)
+    user.wishlists.find_by(product:)
   end
 end

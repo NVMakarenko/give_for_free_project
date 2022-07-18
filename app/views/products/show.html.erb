@@ -15,6 +15,11 @@
     </div>
     <% if @product.own?(current_user) %>
       <%= render 'edit_button', product: @product %>
+    <% elsif not_in_wishlist?(@product, current_user) %>
+      <%= button_to t("button.get"),  wishlists_path, params:{ product_id: @product.id }, class: "btn btn-primary" %>
+    <% else%>
+      <h4><%= t('wishlist.phone')%></h4>
+      <h3><%= @product.owner.phone_number%></h3>
     <%end%>
   <p> <%= link_to t("button.root"), :root %> </p>
 </div>

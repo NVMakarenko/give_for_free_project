@@ -2,6 +2,7 @@
 
 class ProductsController < ApplicationController
   before_action :find_product, except: %i[index new create show_offers]
+    before_action :humanize_param, include: [:new, :edit]
 
   def index
     @products = Product.all
@@ -9,7 +10,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    humanize_param
   end
 
   def create
